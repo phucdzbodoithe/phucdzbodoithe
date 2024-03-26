@@ -27,7 +27,6 @@ Constranins: 1<=n, m<=100, các phần tử trong ma trận là các số nguyê
 */
 #include <stdio.h>
 
-// Hàm nhập ma trận
 void nhapMaTran(int a[][100], int n, int m) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -36,21 +35,16 @@ void nhapMaTran(int a[][100], int n, int m) {
     }
 }
 
-// Hàm tính tích của hai ma trận
-
 int tinhTichMaTran(int X[][100], int n1, int m1, int Y[][100], int n2, int m2, int Z[][100]) {
     if (m1 != n2) // Kiểm tra điều kiện tính tích
         return 0;
-
-    // Khởi tạo ma trận kết quả Z ban đầu
-    
+        
     for (int i = 0; i < n1; i++) {
         for (int j = 0; j < m2; j++) {
             Z[i][j] = 0;
         }
     }
 
-    // Tính tích của hai ma trận
     for (int i = 0; i < n1; i++) {
         for (int j = 0; j < m2; j++) {
             for (int k = 0; k < m1; k++) {
@@ -59,11 +53,10 @@ int tinhTichMaTran(int X[][100], int n1, int m1, int Y[][100], int n2, int m2, i
         }
     }
 
-    return 1;  // Trả về 1 nếu tích được tính
+    return 1; 
     
 }
 
-// Hàm in ma trận
 
 void inMaTran(int Z[][100], int n, int m) {
     for (int i = 0; i < n; i++) {
