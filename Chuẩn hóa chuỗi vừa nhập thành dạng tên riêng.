@@ -46,3 +46,4 @@ int main() {
 	chuan_hoa(str);
 	printf("%s", str);
 }
+
