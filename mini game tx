@@ -84,8 +84,8 @@ int main(){
     printf("\n************************\n");
     printf("Luat choi:\n");
     printf("1. Ban chi co the dat cuoc TAI hoac XIU.\n");
-    printf("2. Neu ban muon dung choi, hay chat DUNG.\n");
-     printf("3. Neu so du cua ban het, ban co the nap them hoac dung choi.\n");
+    printf("2. Neu ban muon dung choi, hay chat DUNG.\n"); //Cai nay toi chua co lam -_-
+     printf("3. Neu so du cua ban het, ban co the nap them hoac dung choi.\n"); //Cai nay toi chua co lam -_-
      printf("4. So tien dat cuoc phai lon hon 10000.\n");
     printf("************************\n\n");
 
