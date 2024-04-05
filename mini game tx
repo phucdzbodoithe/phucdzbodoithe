@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+int ran_dom(int min, int max){
+ return min + rand() % (max + 1 - min);
+}
+
+void danh_tx(int *so_du) {
+	int tien;
+    printf("Nhap so tien ban muon cuoc: ");
+    do {
+        scanf("%d", &tien);
+        if(tien >= 10000 && tien <= *so_du) {
+            break;
+        }
+    } while(tien >= 10000 && tien <= *so_du);
+    printf("\n");
+
+    char dat[100];
+    printf("Ban muon dat cuoc TAI hay XIU (*Luu y: phai viet hoa toan bo!): ");
+    getchar();
+    scanf("%[^\n]", dat);
+    char t[10] = "TAI";
+    char x[10] = "XIU";
+    int r;
+    for(int i = 0; i < 1; ++i){
+        r = ran_dom(3,18);
+    }
+    printf("\n");
+    if(r >= 3 && r <= 10) {
+        printf("\nKet qua cua nha cai la: %d / XIU\n", r);
+        if(strcmp(dat, x) == 0) {
+            *so_du = *so_du + tien * 2;
+            printf("Ban da thang cuoc! So tien hien tai cua ban la: %d", *so_du);
+        } else {
+            *so_du -= tien;
+            printf("Ban da thua cuoc! So tien hien tai cua ban la: %d", *so_du );
+        }
+    } else if(r >= 11 && r <= 18) {
+        printf("\nKet qua cua nha cai la: %d / TAI\n", r);
+        if(strcmp(dat, t) == 0) {
+            *so_du = *so_du + tien * 2;
+            printf("Ban da thang cuoc! So tien hien tai cua ban la: %d", *so_du);
+        } else {
+            *so_du -= tien;
+            printf("Ban da thua cuoc! So tien hien tai cua ban la: %d", *so_du);
+        }
+    }
+}
+
+int main(){
+    printf("Chao mung ban da den voi tro choi!\nMoi ban dang nhap mat khau: ");
+    char c[1000];
+    const char mk[100] = "phucdzbodoithe";
+    int count = 0;
+    do {
+        scanf(" %[^\n]", c);
+        getchar();
+        if(strcmp(c, mk) != 0) {
+            if(count == 4) {
+                break;
+            }
+            printf("Ban nhap sai roi! Moi nhap lai mat khau: ");
+            count++;
+        } else {
+            break;
+        }
+    } while(strcmp(c, mk) != 0 && count < 5);
+
+    printf("\n");
+    if(strcmp(c, mk) == 0) {
+        printf("Ban da dang nhap thanh cong!\n");
+    } else {
+        printf("So lan nhap sai vuot qua gioi han!\n");
+        exit(0);
+    }
+	
+    srand((int)time(0));
+    int so_du = ran_dom(1000000,10000000);
+    printf("So du hien tai cua ban trong tai khoan la: %d\n", so_du);
+    
+    printf("\n************************\n");
+    printf("Luat choi:\n");
+    printf("1. Ban chi co the dat cuoc TAI hoac XIU.\n");
+    printf("2. Neu ban muon dung choi, hay chat DUNG.\n");
+     printf("3. Neu so du cua ban het, ban co the nap them hoac dung choi.\n");
+     printf("4. So tien dat cuoc phai lon hon 10000.\n");
+    printf("************************\n\n");
+
+    while(so_du >= 10000) {
+    	danh_tx(&so_du);
+    	printf("\n\n");
+    	if(so_du < 10000) {
+    		break;
+    	}
+    }
+    printf("So du cua ban da het! Gio tien cua may da o trong tui tao!! ");
+    
+    return 0;
+}
