@@ -1,0 +1,65 @@
+Viết chương trình nhập vào một chuỗi ký tự. In ra số lần xuất hiện từng ký tự trong chuỗi.
+
+Input: Chuỗi ký tự không bao gồm các ký tự điều khiển.
+
+Output: Gồm nhiều dòng, mỗi dòng in ra X: Y
+
+Trong đó: X là ký tự, Y là số lần xuất hiện của X trong chuỗi ban đầu. Thứ tự in ra tuân theo mã ASCII của ký tự. 
+
+Constrains: Chuỗi ký tự không bao gồm các ký tự điều khiển, có độ dài không quá 100.  
+
+Ví dụ:
+
+Input: Chao Cac Ban
+
+Output:
+
+ : 2 //dấu cách xuất hiện 2 lần
+
+B: 1 
+
+C: 2
+
+a: 3
+
+c: 1
+
+h: 1
+
+n: 1
+
+o: 1
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX_LENGTH 100
+
+int main() {
+    char s[MAX_LENGTH];
+    int count[256] = {0};
+    scanf("%[^\n]", s);
+    for (int i = 0; i < strlen(s); i++) {
+        // Kiểm tra xem ký tự có phải là ký tự in hoa hoặc ký tự in thường không
+        if (isalpha(s[i]) || s[i] == ' ') {
+            count[(int)s[i]]++; // Tăng số lần xuất hiện của ký tự
+        }
+    }
+    for (int i = 0; i < 256; i++) {
+        if (count[i] > 0) {
+            printf("%c: %d\n", (char)i, count[i]);
+        }
+    }
+    
+    return 0;
+}
